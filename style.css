@@ -293,3 +293,60 @@ h1, h2, h3, h4 {
     width: 95%;
   }
 }
+/* ===== Contact Section ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-grid h2 {
+  margin-bottom: 8px;
+}
+
+.contact-grid p {
+  margin-bottom: 6px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #1c99fe;
+}
+
+.contact-form button {
+  margin-top: 5px;
+  align-self: flex-start;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+}
+
