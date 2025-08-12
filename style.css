@@ -106,3 +106,71 @@ h2{font-size:1.4rem;margin-bottom:8px}
   .phone-preview{width:180px;height:360px}
   .nav-avatar{width:40px;height:40px}
 }
+/* prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+}
+
+/* spacing between sections */
+.section {
+  padding: 48px 6%;
+  margin-bottom: 20px; /* extra breathing space */
+}
+
+/* give consistent spacing between stacked cards/blocks */
+.cards,
+.app-grid,
+.projects-grid,
+.contact-grid {
+  gap: 20px;
+}
+
+/* fix any image overflow */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* adjust hero on small screens */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 100px 5% 40px;
+  }
+  .hero-left {
+    order: 2; /* text below image for better look */
+  }
+  .hero-card {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
+/* improve mobile nav spacing */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: rgba(7, 16, 33, 0.95);
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px; /* space between links */
+  }
+  .nav-links.show {
+    display: flex;
+  }
+}
+
+/* mobile section padding fix */
+@media (max-width: 480px) {
+  .section {
+    padding: 32px 4%;
+  }
+}
