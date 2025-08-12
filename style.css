@@ -174,3 +174,11 @@ img {
     padding: 32px 4%;
   }
 }
+
+/* Add spacing above tech stack badges */
+.skills {
+  margin-top: 20px; /* space between hero buttons and tech stack */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* spacing between badges */
+}
