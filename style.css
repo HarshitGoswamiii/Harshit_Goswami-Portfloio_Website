@@ -169,15 +169,17 @@ h2 {
 /* HERO */
 .hero {
   display: flex;
-  gap: 30px;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* center horizontally */
   padding: 110px 6% 60px;
+  gap: 0;
 }
+
 .hero-left {
-  flex: 1;
-  min-width: 260px;
+  max-width: 600px; /* limit width for better look */
+  text-align: center; /* center text inside */
+  margin: 0 auto; /* center block */
 }
+
 .hero-card {
   width: 320px;
   display: flex;
@@ -452,11 +454,43 @@ h2 {
   font-weight: 600;
   cursor: pointer;
 }
+.hero {
+  display: flex !important;
+  justify-content: center !important;
+  padding: 110px 6% 60px;
+  gap: 0;
+}
+
+.hero-left {
+  max-width: 600px;
+  text-align: center;
+  margin: 0 auto;
+}
+
 .hero-actions {
-  margin-top: 24px;
-  margin-bottom: 24px; /* adds space below the buttons */
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
 .skills {
-  margin-top: 12px; /* optional: add a little extra breathing room */
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section h2,
+.section p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+}
+
+.cards,
+.app-grid,
+.projects-grid {
+  justify-content: center;
 }
