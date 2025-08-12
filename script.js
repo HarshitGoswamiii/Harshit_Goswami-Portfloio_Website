@@ -108,6 +108,7 @@ function openModal(modal) {
 function closeModal(modal) {
   if (!modal) return;
   modal.setAttribute("aria-hidden", "true");
+  // Only enable scrolling again if no other modals open
   const openModals = document.querySelectorAll(".modal[aria-hidden='false']");
   if (openModals.length === 0) {
     document.body.style.overflow = "";

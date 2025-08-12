@@ -494,3 +494,84 @@ h2 {
 .projects-grid {
   justify-content: center;
 }
+/* Dropdown container */
+.nav-links li.dropdown {
+  position: relative;
+}
+
+/* Dropdown button style */
+.nav-links li.dropdown > a.dropbtn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Hide dropdown content by default */
+.nav-links li.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: rgba(7,16,33,0.9);
+  border-radius: 8px;
+  min-width: 140px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  z-index: 1000;
+  padding: 8px 0;
+}
+
+/* Dropdown links */
+.nav-links li.dropdown .dropdown-content li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-links li.dropdown .dropdown-content li a {
+  display: block;
+  padding: 10px 16px;
+  color: #eaf1ff;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
+}
+
+.nav-links li.dropdown .dropdown-content li a:hover,
+.nav-links li.dropdown .dropdown-content li a:focus {
+  background: #7644ff;
+  color: white;
+}
+
+/* Show dropdown on hover - desktop */
+@media (hover: hover) and (pointer: fine) {
+  .nav-links li.dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
+/* Show dropdown on focus for accessibility */
+.nav-links li.dropdown > a.dropbtn:focus + .dropdown-content,
+.nav-links li.dropdown > a.dropbtn:active + .dropdown-content {
+  display: block;
+}
+
+/* Mobile: dropdown toggle on click */
+@media (max-width: 900px) {
+  .nav-links li.dropdown .dropdown-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+  .nav-links li.dropdown .dropdown-content li a {
+    padding-left: 30px;
+    background: rgba(255,255,255,0.05);
+    margin: 4px 0;
+    border-radius: 6px;
+  }
+}
