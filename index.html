@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Harshit Goswami — Android Developer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-left">
+      <img src="har.jpeg" alt="Harshit Goswami" class="nav-avatar" />
+      <div class="brand">
+        <h3>Harshit Goswami</h3>
+        <span class="muted">Android Developer</span>
+      </div>
+    </div>
+
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="hamburger"></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a class="cta" href="#contact">Hire Me</a>
+      <button class="cta ghost" id="resumeBtn">My Resume</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="hero-left">
+      <div class="badge">Featured • Android Apps</div>
+      <h1>Hello — I’m <span class="accent">Harshit</span></h1>
+      <p class="lead">
+        Android developer — Kotlin, Java & Flutter. I build smooth, performant mobile experiences.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#apps" class="btn">See My Apps</a>
+        <a href="apps/MyCoolGame.apk" class="btn ghost" download>Quick Download</a>
+      </div>
+
+      <div class="skills">
+        <span>• Kotlin</span>
+        <span>• Java</span>
+        <span>• Flutter</span>
+        <span>• Firebase</span>
+      </div>
+    </div>
+
+    <div class="hero-card" aria-hidden="true">
+      <img src="har.jpeg" alt="Harshit portrait" class="profile" />
+      <div class="phone-preview">
+        <img src="images/mockup.png" alt="app screenshot" />
+      </div>
+      <div class="planet" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p class="lead muted">
+        I'm focused on polished UI, performant code and thoughtful UX. I like small teams and big ideas.
+      </p>
+
+      <div class="cards">
+        <div class="info-card">
+          <h3>Experience</h3>
+          <p>2+ years building Android apps, from prototyping to Play Store releases.</p>
+        </div>
+        <div class="info-card">
+          <h3>Focus</h3>
+          <p>Offline-first features, smooth animations, Firebase + REST integrations.</p>
+        </div>
+        <div class="info-card">
+          <h3>Tools</h3>
+          <p>Android Studio • Kotlin • Jetpack Compose • Flutter • Git</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPS -->
+  <section id="apps" class="section dark">
+    <div class="container">
+      <h2>My Android Apps</h2>
+      <p class="muted">Click an app to view details or download the APK directly.</p>
+
+      <div class="app-grid">
+        <article class="app-card">
+          <img class="app-icon" src="images/app1-icon.png" alt="My Cool Game icon">
+          <div class="app-body">
+            <h3>My Cool Game</h3>
+            <p class="muted">Arcade + leaderboards · Kotlin · Firebase</p>
+            <div class="app-actions">
+              <a href="apps/MyCoolGame.apk" class="btn small" download>Download APK</a>
+              <button class="btn small ghost" data-modal="modal-game">Details</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="app-card">
+          <img class="app-icon" src="images/app2-icon.png" alt="Productivity App icon">
+          <div class="app-body">
+            <h3>Productivity App</h3>
+            <p class="muted">Tasks, reminders & cloud sync · Flutter</p>
+            <div class="app-actions">
+              <a href="apps/ProductivityApp.apk" class="btn small" download>Download APK</a>
+              <button class="btn small ghost" data-modal="modal-prod">Details</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Selected Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h4>Real-time Chat</h4>
+          <p class="muted">Socket-based chat with encryption and offline caching.</p>
+        </div>
+        <div class="project-card">
+          <h4>Delivery Tracker</h4>
+          <p class="muted">Maps, background location, and push notifications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section dark">
+    <div class="container contact-grid">
+      <div>
+        <h2>Contact</h2>
+        <p class="muted">Want to work together? Hit me up.</p>
+        <p><strong>Email:</strong> <a href="mailto:harshitgoswami244@gmail.com">harshitgoswami244@gmail.com</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/HarshitGoswamiii" target="_blank">github.com/HarshitGoswamiii</a></p>
+      </div>
+
+      <form id="contactForm" class="contact-form" action="#" onsubmit="return false;">
+        <input type="text" id="name" placeholder="Your name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <textarea id="msg" placeholder="Tell me about your project" rows="5" required></textarea>
+        <button class="btn" onclick="fakeSend()">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Harshit Goswami — Built with ☕ and Kotlin vibes.</p>
+  </footer>
+
+  <!-- APP MODALS -->
+  <div class="modal" id="modal-game" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close" aria-label="close">✕</button>
+      <h3>My Cool Game</h3>
+      <p class="muted">Native Kotlin game with Firebase leaderboards and optimized animations.</p>
+      <div class="modal-screens">
+        <img src="images/app1-1.png" alt="screenshot1"/>
+        <img src="images/app1-2.png" alt="screenshot2"/>
+      </div>
+      <a href="apps/MyCoolGame.apk" class="btn" download>Download APK</a>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-prod" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close" aria-label="close">✕</button>
+      <h3>Productivity App</h3>
+      <p class="muted">Task manager with reminders and cloud sync.</p>
+      <div class="modal-screens">
+        <img src="images/app2-1.png" alt="screenshot1"/>
+        <img src="images/app2-2.png" alt="screenshot2"/>
+      </div>
+      <a href="apps/ProductivityApp.apk" class="btn" download>Download APK</a>
+    </div>
+  </div>
+
+  <!-- RESUME MODAL -->
+  <div class="modal" id="resumeModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close" aria-label="close">✕</button>
+      <h3>My Resume</h3>
+      <p class="muted">Choose an option below:</p>
+      <div style="margin-top: 15px; display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="Harshit_Goswami_Resume.pdf" target="_blank">View Resume</a>
+        <a class="btn ghost" href="Harshit_Goswami_Resume.pdf" download>Download Resume</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
