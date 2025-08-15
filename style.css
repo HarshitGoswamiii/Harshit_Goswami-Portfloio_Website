@@ -611,21 +611,33 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: inherit;
 }
-/* --- Menu underline + lift (works with your existing .nav-links) --- */
+/* --- Menu underline + lift (works with your existing hover bg) --- */
 .nav-links a {
-  position: relative;                 /* needed for the underline anchor point */
-  display: inline-block;              /* so the underline width is predictable */
-  transition: transform .22s ease, background-size .25s ease;
-  /* background-size trick = animated underline using current text color */
-  background-image: linear-gradient(currentColor, currentColor);
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  background-size: 0% 2px;            /* start hidden */
+  position: relative;              /* anchor point for ::after */
+  display: inline-block;           /* predictable underline width */
+  transition: transform .22s ease; /* lift animation */
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 6px;                       /* trim to ignore left padding */
+  right: 6px;                      /* trim to ignore right padding */
+  bottom: 4px;                     /* sits just above the bottom */
+  height: 2px;
+  background-color: currentColor;  /* matches link color */
+  transform: scaleX(0);            /* hidden by default */
+  transform-origin: left;
+  transition: transform .25s ease;
+  z-index: 1;                      /* draw over the hover background */
 }
 
 .nav-links a:hover {
-  transform: translateY(-3px);        /* little lift */
-  background-size: 100% 2px;          /* animate underline in */
+  transform: translateY(-3px);     /* slight lift */
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);            /* slide underline in */
 }
 /* Dropdown container */
 .nav-links li.dropdown { position: relative; }
