@@ -611,42 +611,94 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: inherit;
 }
-/* Menu item hover: underline + lift */
+/* --- Menu underline + lift (works with your existing .nav-links) --- */
 .nav-links a {
-  position: relative;
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 2px;
-  background: currentColor;
-  transition: width 0.3s ease;
+  position: relative;                 /* needed for the underline anchor point */
+  display: inline-block;              /* so the underline width is predictable */
+  transition: transform .22s ease, background-size .25s ease;
+  /* background-size trick = animated underline using current text color */
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;            /* start hidden */
 }
 
 .nav-links a:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px);        /* little lift */
+  background-size: 100% 2px;          /* animate underline in */
 }
+/* Dropdown container */
+.nav-links li.dropdown { position: relative; }
 
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* Social dropdown animation */
-.social-dropdown {
+/* Hidden by default but animatable (no display:none) */
+.nav-links li.dropdown .dropdown-content {
   opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  visibility: hidden;
+  transform: translateY(-8px);
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: rgba(7,16,33,0.9);
+  border-radius: 8px;
+  min-width: 140px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  z-index: 1000;
+  padding: 8px 0;
+  transition: opacity .25s ease, transform .25s ease,
+              visibility 0s linear .25s; /* delay visibility off so it can fade */
 }
 
-.social-dropdown.show {
+/* Links inside the dropdown (kept from your CSS) */
+.nav-links li.dropdown .dropdown-content li { list-style: none; }
+.nav-links li.dropdown .dropdown-content li a {
+  display: block;
+  padding: 10px 16px;
+  color: #eaf1ff;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color .3s ease;
+  border-radius: 6px;
+}
+.nav-links li.dropdown .dropdown-content li a:hover,
+.nav-links li.dropdown .dropdown-content li a:focus {
+  background: #7644ff;
+  color: white;
+}
+
+/* Desktop: animate on hover/focus */
+@media (hover: hover) and (pointer: fine) {
+  .nav-links li.dropdown:hover .dropdown-content,
+  .nav-links li.dropdown:focus-within .dropdown-content {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition-delay: 0s; /* show immediately */
+  }
+}
+
+/* Keyboard/mobile support: when the button is focused or active, show it */
+.nav-links li.dropdown > a.dropbtn:focus + .dropdown-content,
+.nav-links li.dropdown > a.dropbtn:active + .dropdown-content {
   opacity: 1;
   transform: translateY(0);
-  pointer-events: auto;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* Mobile layout tweaks (keep your existing styles but remove display:none logic) */
+@media (max-width: 900px) {
+  .nav-links li.dropdown .dropdown-content {
+    position: relative;
+    top: 0; left: 0;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+  .nav-links li.dropdown .dropdown-content li a {
+    padding-left: 30px;
+    background: rgba(255,255,255,0.05);
+    margin: 4px 0;
+    border-radius: 6px;
+  }
 }
