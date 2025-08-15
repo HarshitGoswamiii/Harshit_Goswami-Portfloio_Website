@@ -611,3 +611,42 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: inherit;
 }
+/* Menu item hover: underline + lift */
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  transform: translateY(-3px);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Social dropdown animation */
+.social-dropdown {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.social-dropdown.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}

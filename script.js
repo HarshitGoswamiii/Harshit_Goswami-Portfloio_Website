@@ -76,14 +76,43 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // nav link active highlight
+  // nav link active highlight + hover underline + lift effect
   const navLinksA = document.querySelectorAll(".nav-links a");
   navLinksA.forEach((a) => {
     a.addEventListener("click", () => {
       navLinksA.forEach((x) => x.classList.remove("active"));
       a.classList.add("active");
     });
+
+    // hover animations
+    a.addEventListener("mouseenter", () => {
+      a.style.transition = "transform 0.2s ease, box-shadow 0.2s ease";
+      a.style.transform = "translateY(-3px)";
+      a.classList.add("underline-animate");
+    });
+    a.addEventListener("mouseleave", () => {
+      a.style.transform = "translateY(0)";
+      a.classList.remove("underline-animate");
+    });
   });
+
+  // social dropdown opening animation
+  const socialDropdown = document.querySelector(".social-dropdown");
+  const socialToggle = document.querySelector(".social-toggle");
+
+  if (socialToggle && socialDropdown) {
+    socialToggle.addEventListener("click", () => {
+      if (!socialDropdown.classList.contains("open")) {
+        socialDropdown.classList.add("opening");
+        setTimeout(() => {
+          socialDropdown.classList.remove("opening");
+          socialDropdown.classList.add("open");
+        }, 200); // animation duration
+      } else {
+        socialDropdown.classList.remove("open");
+      }
+    });
+  }
 });
 
 // small demo contact form submit
@@ -108,7 +137,6 @@ function openModal(modal) {
 function closeModal(modal) {
   if (!modal) return;
   modal.setAttribute("aria-hidden", "true");
-  // Only enable scrolling again if no other modals open
   const openModals = document.querySelectorAll(".modal[aria-hidden='false']");
   if (openModals.length === 0) {
     document.body.style.overflow = "";
